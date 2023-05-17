@@ -135,10 +135,7 @@ let routes = (app) => {
     const responses = verifyToken({ authToken: req.header("authorization") });
 
     try {
-      let user = await User.findOne({ _id: responses.data.id }).populate(
-        "referrals",
-        "firstname lastname email"
-      );
+      let user = await User.findOne({ _id: responses.data.id })
       res.json(user);
     } catch (err) {
       res.status(500).send(err);
