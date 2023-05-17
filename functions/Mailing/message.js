@@ -15,7 +15,7 @@ async function MessagSystem(e, value) {
   } else {
     const report = {
       subject: "Welcome", // Subject line
-      text: "Welcome to massbuy", // plain text body
+      text: "Welcome to twitter", // plain text body
       html: `<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
  <head>
     <meta charset="UTF-8" />
@@ -92,7 +92,7 @@ async function MessagSystem(e, value) {
                           font-weight: 900;
                           line-height: 36px;
                         ">
-                                            Welcome to Massbuy!
+                                            Welcome to twitter!
                                         </p>
                                         <p style="
                           margin: 0 0 29px 0;
@@ -109,50 +109,8 @@ async function MessagSystem(e, value) {
                         ">
                                             You're in! We're excited to have you here!
                                         </p>
-                                        <p style="
-                          margin: 0 0 29px 0;
-                          width: 245px;
-                          font-size: 14.5px;
-                          line-height: 25px;
-                        ">
-                                            We created Vèndly to make you send and receive money
-                                            using your social media identity. We are interested in
-                                            making payments easy and guarding your data while at it.
-                                        </p>
-                                        <p style="
-                          margin: 0 0 29px 0;
-                          width: 243px;
-                          font-size: 14.5px;
-                          line-height: 25px;
-                        ">
-                                            Get comfortable and have a good time creating and
-                                            claiming packages!
-                                        </p>
-                                        <p style="
-                          margin: 0 0 29px 0;
-                          width: 243px;
-                          font-size: 14.5px;
-                          line-height: 25px;
-                        ">
-                                            Ready to take the wheel?
-                                        </p>
-                                        <a href="http://massbuy.ng">
-                                            <button style="
-                          margin: 0 0 43px 0;
-                          font-family: 'Axiforma';
-                          width: 269px;
-                          height: 67px;
-                          border-radius: 52px;
-                          border: none;
-                          background-color: #000000;
-                          color: #ffffff;
-                          font-size: 14.3px;
-                          line-height: 15px;
-                          font-weight: 600;
-                        ">
-                                                Create a Package!
-                                            </button>
-                                        </a>
+                                   
+                                       
                                         <p style="
                           margin: 0 0 0px 0;
                           width: 260px;
@@ -163,7 +121,7 @@ async function MessagSystem(e, value) {
                         ">
                                             You’re receiving this email because you signed up with
                                             your email address. If you have any inquiry or feedback
-                                            on Massbuy, feel free to drop a line at admin@massbuy.ng.
+                                            on twitter, feel free to drop a line at admin@twitter.com.
                                             Remember to follow us on <span
                                                 style="text-decoration:underline">Twitter</span> for more updates!
                                         </p>
