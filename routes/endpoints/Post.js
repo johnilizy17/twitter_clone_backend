@@ -35,7 +35,9 @@ let routes = (app) => {
         const responses = verifyToken({ authToken: req.header("authorization") });
 
         if (responses.data.id) {
+            if(file){
             const imageLink = await ImageUpload(file)
+         
             if (imageLink) {
                 try {
                     let post = new Post({ ...req.body, photo: imageLink, postedBy: responses.data.id });
@@ -46,8 +48,16 @@ let routes = (app) => {
                     console.log(err)
                     res.status(500).send(err)
                 }
-            } else {
-                res.status(305).send("image filed to upload")
+            }} else {
+                try {
+                    let post = new Post({ ...req.body, postedBy: responses.data.id });
+                    await post.save()
+                    res.json(post)
+                }
+                catch (err) {
+                    console.log(err)
+                    res.status(500).send(err)
+                }
             }
         } else {
             res.status(400).send("you are not authorised")
