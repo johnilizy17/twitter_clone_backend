@@ -163,6 +163,8 @@ let routes = (app) => {
         username: user.username,
       });
 
+     
+
 
       res.json({
         msg: "Login successful!",
@@ -175,6 +177,43 @@ let routes = (app) => {
       res.status(500).send(err);
     }
   });
+
+  app.post("/google_auth", async (req, res) => {
+    try {
+      const { email, firstname, lastname} = req.body;
+
+      let user = await User.findOne({ email });
+      
+      if (!user) {
+        const passwordHash = await bcrypt.hash(email, 12);
+        const newUser = {
+          firstname,
+          lastname,
+          email,
+          password: passwordHash,
+          username: passwordHash
+        }
+         user_ = new User(newUser);
+        await user_.save();
+      }
+      const token = createAccessToken({
+        id: user._id,
+        role: user.role,
+        username: user.username,
+      });
+
+
+  res.json({
+    msg: "Login successful!",
+    userID: user._id,
+    access_token: token,
+    username: user.username,
+  });
+
+} catch (err) {
+  res.status(500).send(err);
+}
+});
 
   app.get("/users/alluser", async (req, res) => {
     const users = await User.find()
