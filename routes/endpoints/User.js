@@ -133,7 +133,6 @@ let routes = (app) => {
 
   app.get("/user/profile", async (req, res) => {
     const responses = verifyToken({ authToken: req.header("authorization") });
-
     try {
       let user = await User.findOne({ _id: responses.data.id })
       res.json(user);
