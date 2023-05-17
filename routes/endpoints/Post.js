@@ -108,27 +108,16 @@ let routes = (app) => {
 
     app.put('/post/blog/:id', upload.single('image'), async (req, res) => {
 
-        let productPost = await Post.findOne({ _id: req.params.id }).populate("postedBy").populate("comments.postedBy", "likes")
-       let likes
-        productPost.likes.map((r,i)=>{
-           if(r ===req.body.likes) likes= true
-        })
+        const update = req.body;
 
-        if(!likes){
-        productPost.likes.push(req.body.likes)
+        try {
+            let product = await Post.updateOne({ _id: req.params.id }, update, { returnOriginal: false });
+            res.json(product)
         }
-        productPost.comments.push(req.body.comments)
-        
-        const update = { likes:productPost.likes, comments:productPost.comments}
-
-                try {
-                    let product = await Post.updateOne({ _id: req.params.id }, update, { returnOriginal: false });
-                    res.json(product)
-                }
-                catch (err) {
-                    console.log(err)
-                    res.status(500).send(err)
-                }
+        catch (err) {
+            console.log(err)
+            res.status(500).send(err)
+        }
 
     });
 
